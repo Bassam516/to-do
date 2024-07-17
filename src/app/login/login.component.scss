@@ -1,0 +1,44 @@
+
+.loginContainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loginForm{
+        width: 50%;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        padding: 20px;
+        border-radius: 7px;
+
+        h3{
+            margin: 20px 0;
+        }
+    }
+}
+:host ::ng-deep{
+    .p-float-label{
+        margin-block: 20px;
+        input{
+            width: 100%;
+            margin-block: 2px;
+            box-shadow: none; 
+            padding: 10px 15px;
+        }
+        .p-password{
+            width: 100%;
+            box-shadow: none; 
+        }
+    }
+    .p-button{
+        width: 100%;
+    }
+}
+
+@media (max-width:991px){
+    .loginContainer{
+        .loginForm{
+            width: 100%;
+        }
+    }
+}

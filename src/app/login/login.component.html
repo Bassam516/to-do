@@ -1,0 +1,26 @@
+<div class="loginContainer py-5">
+    <div class="loginForm">
+        <h3>Login</h3>
+        <div class="alert alert-info">
+            <h4>For login test</h4>
+            <ul>
+                <li>username: user</li>
+                <li>password: &#64;UserPass2024</li>
+            </ul>
+        </div>
+        <div class="alert alert-danger" *ngIf="errorMsg">
+            {{errorMsg}}
+        </div>
+        <form [formGroup]="loginForm">
+            <p-floatLabel>
+                <input pInputText id="username" formControlName="userName" [(ngModel)]="userNameValue" />
+                <label for="username">Username</label>
+            </p-floatLabel>
+            <p-floatLabel>
+                <p-password [(ngModel)]="passwordValue" formControlName="password" [toggleMask]="true" [feedback]="false" />
+                <label for="password">Password</label>
+            </p-floatLabel>
+            <p-button [disabled]="loginForm.invalid" class="d-block w-100" type="submit" label="Login" [raised]="true" (onClick)="handleLogin(loginForm)" />
+        </form>
+    </div>
+</div>

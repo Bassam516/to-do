@@ -1,0 +1,37 @@
+
+<nav
+    class="navbar navbar-expand-sm navbar-light"
+>
+    <div class="container">
+        <a class="navbar-brand fs-3" href="#"><i class="pi pi-address-book fa-1x"></i> To-Do</a>
+        <button class="btn btn-primary text-white" (click)="handleLogout()">Logout</button>
+    </div>
+</nav>
+
+<section class="list-container my-3">
+    <div class="todo">
+        <form [formGroup]="addItemForm">
+            <input type="text" formControlName="itemName" placeholder="Add to-do item" class="form-control">
+            <button class="btn btn-outline-primary" (click)="addItem(addItemForm)"><i class="pi pi-plus-circle"></i>
+                Add</button>
+        </form>
+        <div class="display py-4">
+            <button *ngIf="allItems.length != 0" class="btn btn-outline-danger my-3"
+                (click)="clearListConfirm($event)"><i class="pi pi-trash"></i> Clear list</button>
+            <p-toast [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" />
+            <p-confirmDialog />
+            <div *ngFor="let item of allItems; let i= index">
+                <div class="item">
+                    <span>{{i+1}}</span>
+                    <h5>{{item.itemName}}</h5>
+                    <button class="btn btn-outline-danger" (click)="deleteItemConfirm($event,i)"><i
+                            class="pi pi-trash"></i></button>
+                </div>
+            </div>
+            <div class="text-center py-4" *ngIf="allItems.length == 0">
+                <img src="assets/images/emptyList.png" width="200px" alt="emptyList" class="img-fluid my-3">
+                <h5>Your to-do list is empty!</h5>
+            </div>
+        </div>
+    </div>
+</section>
